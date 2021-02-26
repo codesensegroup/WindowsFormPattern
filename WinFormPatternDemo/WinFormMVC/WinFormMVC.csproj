@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
-    <Compile Include="View\ViewForm.cs" />
+    <Compile Include="View\ViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="View\ViewForm.Designer.cs">
       <DependentUpon>ViewForm.cs</DependentUpon>
     </Compile>
