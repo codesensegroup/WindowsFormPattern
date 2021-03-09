@@ -73,6 +73,7 @@ namespace WinFormMVC.View
             this.Name = "ViewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View";
+            this.Shown += new System.EventHandler(this.ViewForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

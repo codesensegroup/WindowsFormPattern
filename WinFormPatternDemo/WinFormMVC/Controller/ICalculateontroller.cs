@@ -2,7 +2,7 @@
 
 namespace WinFormMVC.Controller
 {
-    public interface IController
+    public interface ICalculateontroller
     {
         /// <summary>
         ///     Add the delegate event
@@ -14,18 +14,13 @@ namespace WinFormMVC.Controller
         ///     Increase value
         /// </summary>
         /// <param name="nowVal"> Now value </param>
-        void Incvalue(int nowVal);
+        int Incvalue();
 
         /// <summary>
         ///     Reduce value (use delegate)
         /// </summary>
         /// <param name="nowVal"> Now value </param>
-        void OnReduce(int nowVal);
+        void OnReduce();
 
-        /// <summary>
-        ///     Increased result
-        /// </summary>
-        /// <param name="IncVal"> Increased value </param>
-        void Result(int IncVal);
     }
 }

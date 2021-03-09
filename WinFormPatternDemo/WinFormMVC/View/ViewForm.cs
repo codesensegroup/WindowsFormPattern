@@ -4,34 +4,32 @@ using WinFormMVC.Controller;
 
 namespace WinFormMVC.View
 {
-    public partial class ViewForm : Form, IView
+    public partial class ViewForm : Form
     {
-        private IController _controller = null;
+        private ICalculateontroller _controller;
+
+        private int Value { set => txt_Result.Text = value.ToString(); }
 
         public ViewForm()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
 
-        public void SetController(IController controller)
+        private void ViewForm_Shown(object sender, EventArgs e)
         {
-            _controller = controller;
+            _controller = new CalculateController();
             _controller.AddHandler(ReduceHandler);
-        }
-
-        public void ShowResult(int resultCount)
-        {
-            txt_Result.Text = $"{resultCount}";
         }
 
         private void btn_Incvalue_Click(object sender, EventArgs e)
         {
-            _controller.Incvalue(GetValue());
+            var value = _controller.Incvalue();
+            Value = value;
         }
 
         private void btn_OnReduce_Click(object sender, EventArgs e)
         {
-            _controller.OnReduce(GetValue());
+            _controller.OnReduce();
         }
 
         private void ReduceHandler(int resultCount)
@@ -39,10 +37,6 @@ namespace WinFormMVC.View
             txt_Result.Text = $"{resultCount}";
         }
 
-        private int GetValue()
-        {
-            int.TryParse(txt_Result.Text, out var nowCount);
-            return nowCount;
-        }
+      
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using WinFormMVC.Controller;
-using WinFormMVC.Model;
 using WinFormMVC.View;
 
 namespace MVCSample
@@ -16,12 +14,7 @@ namespace MVCSample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //  Start up
-            var view = new ViewForm();          //  Create view
-            var model = new Model();            //  Create model
-            _ = new Controller(view, model);    //  Create controller
-            Application.Run(view);
+            Application.Run(new ViewForm());
         }
     }
 }
